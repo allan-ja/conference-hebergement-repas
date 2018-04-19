@@ -4,18 +4,18 @@ const mongoose = require('mongoose');
 const app = express();
 const port = process.env.PORT || 5000;
 
-const User = require('./models/user')
-
 mongoose.connect('mongodb://localhost/chr')
 
-var alice = new User({name:{first: 'Alice', last:'oneil'}});
+const Registration = require('./models/registration')
 
-alice.save((err) => {
+var registration = new Registration({name:{first: 'Alice', last:'oneil'}});
+
+registration.save((err) => {
   if (err) throw err;
   console.log("saved sucessfully")
 });
 
-app.get('/api/hello', (req, res) => {
+app.get('/api/registrations', (req, res) => {
   res.send({ express: 'Hello From Express' });
 });
 

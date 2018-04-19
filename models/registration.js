@@ -2,10 +2,32 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const registrationSchema = new Schema({
-    attendee: Schema.Types.ObjectId,
-    accomodation: String,
+    name: {first: String, last: String},
+    dojo: String,
+    center: String,
+    title: String,
+    dojo_mission: String,
+    age: Number,
+    gender: String,
+    languages: [String],
+    email: String,
+    main_activity: {
+        class: String,
+        subclass: String
+
+    },
+    extra_activities: [String],
     arrival_date: Date,
     leaving_date: Date,
-    meals:[Schema.Types.ObjectId],
+    accomodation: String,
+    meals:[{
+        day: Date,
+        meal: String,
+        allergy: String
+    }],
     comments: String
-})
+}, {timestamps: true})
+
+const Registration = mongoose.model('registrations', registrationSchema);
+
+module.exports = Registration;
