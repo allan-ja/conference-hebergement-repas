@@ -1,13 +1,8 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+const expect = require('chai').expect;
+const Registration = require('../models/registration')
 
+const regitstrations_test = [
 
-function validateEmail(email) {
-    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(String(email).toLowerCase());
-}
-
-const registrationSchema = new Schema({
     first_name: {type: String, required: true},
     last_name: {type: String, required: true},
     dojo: String,
@@ -33,8 +28,5 @@ const registrationSchema = new Schema({
         allergy: String
     }],
     comments: String
-}, {timestamps: true})
-
-const Registration = mongoose.model('registrations', registrationSchema);
-
-module.exports = Registration;
+}
+]

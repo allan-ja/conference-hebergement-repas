@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import ReactDataSheet from 'react-datasheet';
 
-const ReactDataGrid = require('react-data-grid');
+import ReactDataGrid from 'react-data-grid';
 
 class App extends Component {
   constructor(props, context) {
@@ -62,7 +62,21 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <ReactDataSheet
+        <ReactDataGrid
+        columns={this._columns}
+        rowGetter={this.rowGetter}
+        rowsCount={this._rows.length}
+        minHeight={500}
+        minColumnWidth={120} 
+      />
+        
+      </div>
+    );
+  }
+}
+
+export default App;
+{/* <ReactDataSheet
         data={this.state.grid}
         valueRenderer={(cell) => cell.value}
         onCellsChanged={changes => {
@@ -72,10 +86,4 @@ class App extends Component {
           })
           this.setState({grid})
         }}
-      />
-      </div>
-    );
-  }
-}
-
-export default App;
+      /> */}
