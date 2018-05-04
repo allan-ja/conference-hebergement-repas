@@ -1,6 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+require('./models/User');
+
 
 const app = express();
 const port = process.env.PORT || 5000;
