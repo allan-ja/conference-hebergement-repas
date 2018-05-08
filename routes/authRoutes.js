@@ -3,41 +3,22 @@ const mongoose = require('mongoose');
 const User = mongoose.model('users');
 
 module.exports = app => {
+    app.get('/', (req, res) => {
+        res.send('Root page');
+    });
+    
     app.get('/login',
         (req, res) => {
-            res.send({
-                login: req.body.username
-            });
-        });
-
-    app.post('/login', (req, res, next) => {
-        passport.authenticate('local',
-    (err, user, info) => {
-        console.log(err);
-        console.log(user);
-        console.log(info);
-    }),
-        (req, res) => {
-            res.send('Howowow')
+            res.send('Login page');
         }
-    })
+    );
 
-    app.get('/login', function (req, res, next) {
-        passport.authenticate('local', function (err, user, info) {
-            if (err) {
-                return next(err);
-            }
-            if (!user) {
-                return res.redirect('/login');
-            }
-            req.logIn(user, function (err) {
-                if (err) {
-                    return next(err);
-                }
-                return res.redirect('/users/' + user.username);
-            });
-        })(req, res, next);
-    });
+    app.post('/login',
+        passport.authenticate('local', { failureRedirect: '/login' }),
+        function(req, res) {
+            res.redirect('/');
+        }
+    );
 
     app.post('/signup', (req, res) => {
         console.log(req.body);

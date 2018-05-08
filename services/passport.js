@@ -15,20 +15,19 @@ passport.deserializeUser((id, done) => {
     });
 });
 
-
-passport.use(
-    new LocalStrategy(
-        async (username, password, done) => {
-            const existingUser = await User.findOne({
-                email: username,
-                password: password
-            });
-
-            if (existingUser) {
-                return done(null, existingUser);
-            }
-            done(null, false);
+passport.use(new LocalStrategy({
+    usernameField: 'email'
+  }, 
+    async (email, password, done) => {
+        const user = await User.findOne({ email: email });
+        if (!user) { return done(null, false); }
+        const isMatch = await user.verifyPassword(password);
+        if (isMatch) {
+            return done(null, user);
         }
-    )
-);
+        else {
+            return done(null, false);
+        }
+    }
+));
         
