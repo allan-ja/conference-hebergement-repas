@@ -17,18 +17,19 @@ passport.deserializeUser((id, done) => {
 
 
 passport.use(
-    new LocalStrategy(
-        async (username, password, done) => {
-            const existingUser = await User.findOne({
-                email: username,
-                password: password
-            });
-
-            if (existingUser) {
-                return done(null, existingUser);
-            }
-            done(null, false);
-        }
-    )
+  new LocalStrategy(function(username, password, done) {
+    User.findOne({ email: username }, function(err, user) {
+      if (err) {
+        return done(err);
+      }
+      if (!user) {
+        return done(null, false);
+      }
+      if (!user.verifyPassword(password)) {
+        return done(null, false);
+      }
+      return done(null, user);
+    });
+  })
 );
         
