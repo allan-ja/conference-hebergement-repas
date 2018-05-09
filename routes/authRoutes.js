@@ -7,20 +7,20 @@ module.exports = app => {
         res.send('Root page');
     });
     
-    app.get('/login',
+    app.get('/api/login',
         (req, res) => {
             res.send('Login page');
         }
     );
 
-    app.post('/login',
+    app.post('/api/login',
         passport.authenticate('local', { failureRedirect: '/login' }),
         function(req, res) {
             res.redirect('/');
         }
     );
 
-    app.post('/signup', (req, res) => {
+    app.post('/api/signup', (req, res) => {
         console.log(req.body);
         const newUser = new User(req.body);
         newUser.save((err) => {
@@ -30,7 +30,6 @@ module.exports = app => {
         res.send(req.body)
 
     })
-
 
     app.get('/api/logout', (req, res) => {
         req.logout();
