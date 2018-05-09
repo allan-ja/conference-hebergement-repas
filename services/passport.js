@@ -15,6 +15,7 @@ passport.deserializeUser((id, done) => {
     });
 });
 
+<<<<<<< HEAD
 
 passport.use(
   new LocalStrategy(function(username, password, done) {
@@ -32,4 +33,21 @@ passport.use(
     });
   })
 );
+=======
+passport.use(new LocalStrategy({
+    usernameField: 'email'
+  }, 
+    async (email, password, done) => {
+        const user = await User.findOne({ email: email });
+        if (!user) { return done(null, false); }
+        const isMatch = await user.verifyPassword(password);
+        if (isMatch) {
+            return done(null, user);
+        }
+        else {
+            return done(null, false);
+        }
+    }
+));
+>>>>>>> 48559674fdd4cf01705ef17c7c5226ea8bce63b1
         
