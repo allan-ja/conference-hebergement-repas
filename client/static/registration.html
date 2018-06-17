@@ -15,6 +15,14 @@
 
   <!-- Custom styles for this template -->
   <link href="registration.css" rel="stylesheet">
+
+  <!-- CDN for datetime-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/css/tempusdominus-bootstrap-4.min.css"
+  />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+    crossorigin="anonymous">
 </head>
 
 <body>
@@ -55,81 +63,348 @@
   </nav>
 
   <div class="jumbotron">
-    <div class="container container-fluid">
-      <div class="col-md-5 order-md-1">
-        <div class="form-row">
-          <div class="col-md-6 mb-3">
-            <label for="firstName">First name</label>
-            <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Names Form Column -->
+        <div class="col-md-4">
+          <div class="form-row">
+            <div class="col-md-6 mb-3">
+              <label for="firstName">First name</label>
+              <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+              <div class="invalid-feedback">
+                Valid first name is required.
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="lastName">Last name</label>
+              <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+              <div class="invalid-feedback">
+                Valid last name is required.
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="you@example.com">
             <div class="invalid-feedback">
-              Valid first name is required.
+              Please enter a valid email address for shipping updates.
             </div>
           </div>
-          <div class="col-md-6 mb-3">
-            <label for="lastName">Last name</label>
-            <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
-            <div class="invalid-feedback">
-              Valid last name is required.
+
+          <div class="row">
+            <div class="col-md-6">
+              <label>Langues</label>
+              <select class="custom-select d-block w-100" id="langue-1" required>
+                <option value="">Choose...</option>
+                <option>Français</option>
+                <option>English</option>
+                <option>Español</option>
+              </select>
+              <select class="custom-select d-block w-100" id="langue-2" required>
+                <option value="">Choose...</option>
+                <option>Français</option>
+                <option>English</option>
+                <option>Español</option>
+              </select>
+              <input type="text" class="form-control" placeholder="Other..">
+
+            </div>
+            <div class="col-md-6">
+              <label>Age</label>
+              <select class="custom-select d-block w-100" id="state" required>
+                <option value="">Choose...</option>
+                <option>0-9</option>
+                <option>10-17</option>
+                <option>18-30</option>
+                <option>30-49</option>
+                <option>50-69</option>
+                <option>70+</option>
+              </select>
+              <label>Sex</label>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                <label class="form-check-label" for="exampleRadios1">
+                  Homme
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                <label class="form-check-label" for="exampleRadios2">
+                  Femme
+                </label>
+              </div>
             </div>
           </div>
+
+          <div class="form-row">
+            <div class="col-md-6">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                <label class="form-check-label" for="exampleRadios1">
+                  Kumite
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                <label class="form-check-label" for="exampleRadios2">
+                  Mi-Kumite
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                <label class="form-check-label" for="exampleRadios2">
+                  Groupe des Jeunes
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="formGroupExampleInput">Mission</label>
+              <select class="custom-select" id="langue-1" required>
+                <option value="">Choose...</option>
+                <option>Taicho</option>
+                <option>Oseiwanin</option>
+                <option>Buntaicho</option>
+              </select>
+            </div>
+          </div>
+
+        </div>
+        <!-- Activity Column -->
+        <div class="col-md-3">
+          <table class="table table-sm">
+            <thead>
+              <tr>
+                <th scope="col"></th>
+                <th scope="col">Activités</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div class="checkbox checkbox-success">
+                    <input type="checkbox" id="checkbox2 class=" styled "">
+                    <label></label>
+                  </div>
+                </td>
+                <td>Gohoshi Mimatsuri</td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="checkbox checkbox-success">
+                    <input type="checkbox" id="checkbox2 class=" styled "">
+                    <label></label>
+                  </div>
+                </td>
+                <td>Cours Secondaire</td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="checkbox checkbox-success">
+                    <input type="checkbox" id="checkbox2 class=" styled "">
+                    <label></label>
+                  </div>
+                </td>
+                <td>Formation Jeunes</td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="checkbox checkbox-success">
+                    <input type="checkbox" id="checkbox2 class=" styled "">
+                    <label></label>
+                  </div>
+                </td>
+                <td>Gohoshi Avant</td>
+              </tr>
+            </tbody>
+          </table>
+          <hr class="mb-4">
+          <div class='col-md'>
+            <label>Arrivée au Shidobu</label>
+            <div class="form-group">
+              <div class="input-group date" id="datetimepicker7" data-target-input="nearest">
+                <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker7" />
+                <div class="input-group-append" data-target="#datetimepicker7" data-toggle="datetimepicker">
+                  <div class="input-group-text">
+                    <i class="fa fa-calendar"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class='col-md'>
+            <div class="form-group">
+              <label>Départ au Shidobu</label>
+              <div class="input-group date" id="datetimepicker8" data-target-input="nearest">
+                <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker8" />
+                <div class="input-group-append" data-target="#datetimepicker8" data-toggle="datetimepicker">
+                  <div class="input-group-text">
+                    <i class="fa fa-calendar"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
         </div>
 
-        <div class="mb-3">
-          <label for="email">Email</label>
-          <input type="email" class="form-control" id="email" placeholder="you@example.com">
-          <div class="invalid-feedback">
-            Please enter a valid email address for shipping updates.
+        <!-- Meal Column -->
+        <div class="col-md-4">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+            <label class="form-check-label" for="inlineRadio1">Normal</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+            <label class="form-check-label" for="inlineRadio1">Végétarien</label>
+          </div>
+          <div class="mb-3">
+            <table class="table table-sm">
+              <thead>
+                <tr>
+                  <th scope="col">Date</th>
+                  <th scope="col">Matin</th>
+                  <th scope="col">Midi</th>
+                  <th scope="col">Soir</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Ven 01/06</td>
+                  <td>
+                    <div class="checkbox checkbox-success">
+                      <input type="checkbox" id="checkbox2 class=" styled "">
+                      <label></label>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="checkbox checkbox-success">
+                      <input type="checkbox" id="checkbox2 class=" styled "">
+                      <label></label>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="checkbox checkbox-success">
+                      <input type="checkbox" id="checkbox2 class=" styled "">
+                      <label></label>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Sam 02/06</td>
+                  <td>
+                    <div class="checkbox checkbox-success">
+                      <input type="checkbox" id="checkbox2 class=" styled "">
+                      <label></label>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="checkbox checkbox-success">
+                      <input type="checkbox" id="checkbox2 class=" styled "">
+                      <label></label>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="checkbox checkbox-success">
+                      <input type="checkbox" id="checkbox2 class=" styled "">
+                      <label></label>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Dim 03/06</td>
+                  <td>
+                    <div class="checkbox checkbox-success">
+                      <input type="checkbox" id="checkbox2 class=" styled "">
+                      <label></label>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="checkbox checkbox-success">
+                      <input type="checkbox" id="checkbox2 class=" styled "">
+                      <label></label>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="checkbox checkbox-success">
+                      <input type="checkbox" id="checkbox2 class=" styled "">
+                      <label></label>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Lun 04/06</td>
+                  <td>
+                    <div class="checkbox checkbox-success">
+                      <input type="checkbox" id="checkbox2 class=" styled "">
+                      <label></label>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="checkbox checkbox-success">
+                      <input type="checkbox" id="checkbox2 class=" styled "">
+                      <label></label>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="checkbox checkbox-success">
+                      <input type="checkbox" id="checkbox2 class=" styled "">
+                      <label></label>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Mar 05/06</td>
+                  <td>
+                    <div class="checkbox checkbox-success">
+                      <input type="checkbox" id="checkbox2 class=" styled "">
+                      <label></label>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="checkbox checkbox-success">
+                      <input type="checkbox" id="checkbox2 class=" styled "">
+                      <label></label>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="checkbox checkbox-success">
+                      <input type="checkbox" id="checkbox2 class=" styled "">
+                      <label></label>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <hr class="mb-4">
+          <!-- Accommodation -->
+          <label>Hébergement</label>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="accomodation" id="exampleRadios1" value="option1" checked>
+            <label class="form-check-label" for="exampleRadios1">
+              Non
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="accomodation" id="exampleRadios2" value="option2">
+            <label class="form-check-label" for="exampleRadios2">
+              Lit
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="accomodation" id="exampleRadios2" value="option2">
+            <label class="form-check-label" for="exampleRadios2">
+              Sac de couchage
+            </label>
           </div>
         </div>
-
-        <div class="form-row">
-          <div class="col-md-4 mb-3">
-            <label>Langues</label>
-            <select class="custom-select d-block w-100" id="langue-1" required>
-              <option value="">Choose...</option>
-              <option>Français</option>
-              <option>English</option>
-              <option>Español</option>
-            </select>
-            <select class="custom-select d-block w-100" id="langue-2" required>
-              <option value="">Choose...</option>
-              <option>Français</option>
-              <option>English</option>
-              <option>Español</option>
-            </select>
-            <input type="text" class="form-control" placeholder="Other..">
-
-          </div>
-          <div class="col-md-3 mb-3">
-            <label>Age</label>
-            <select class="custom-select d-block w-100" id="state" required>
-              <option value="">Choose...</option>
-              <option>0-9</option>
-              <option>10-17</option>
-              <option>18-30</option>
-              <option>30-49</option>
-              <option>50-69</option>
-              <option>70+</option>
-            </select>
-            <label>Sex</label>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-              <label class="form-check-label" for="exampleRadios1">
-                Homme
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-              <label class="form-check-label" for="exampleRadios2">
-                Femme
-              </label>
-            </div>
-          </div>
-
-        </div>
-
       </div>
     </div>
+  </div>
+
 
 
 
@@ -141,6 +416,22 @@
     <script>
       window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')
     </script>
-    <script src="../../../../assets/js/vendor/popper.min.js"></script>
     <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../node_modules/moment/min/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <script type="text/javascript">
+      $(function () {
+        $('#datetimepicker7').datetimepicker();
+        $('#datetimepicker8').datetimepicker({
+          useCurrent: false
+        });
+        $("#datetimepicker7").on("change.datetimepicker", function (e) {
+          $('#datetimepicker8').datetimepicker('minDate', e.date);
+        });
+        $("#datetimepicker8").on("change.datetimepicker", function (e) {
+          $('#datetimepicker7').datetimepicker('maxDate', e.date);
+        });
+      });
+    </script>
 </body>
