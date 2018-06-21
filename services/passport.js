@@ -15,7 +15,6 @@ passport.deserializeUser((id, done) => {
     });
 });
 
-<<<<<<< HEAD
 
 passport.use(
   new LocalStrategy(function(username, password, done) {
@@ -33,7 +32,6 @@ passport.use(
     });
   })
 );
-=======
 passport.use(new LocalStrategy({
     usernameField: 'email'
   }, 
@@ -49,5 +47,4 @@ passport.use(new LocalStrategy({
         }
     }
 ));
->>>>>>> 48559674fdd4cf01705ef17c7c5226ea8bce63b1
         
