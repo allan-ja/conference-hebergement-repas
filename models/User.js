@@ -3,6 +3,11 @@ const { Schema } = mongoose;
 const bcrypt = require('bcrypt');
 const SALT_WORK_FACTOR = 10;
 
+function validateEmail(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+}
+
 const userSchema = new Schema({
     name: {first: String, last: String},
     email: { type: String, required: true, index: { unique: true } },
