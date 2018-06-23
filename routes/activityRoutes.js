@@ -3,10 +3,10 @@ const mongoose = require('mongoose');
 const Activity = mongoose.model('activities');
 
 module.exports = app => {
-    // app.get('/api/activities', async (req, res) => {
-    //     const activities = await Activity.find();
-      
-    // })
+    app.get('/api/activities', async (req, res) => {
+        const activities = await Activity.find();
+        res.send(activities);
+    })
 
     app.post('/api/activity', async (req, res) => {
         const activity = await Activity.findOne({ name: req.body.name});

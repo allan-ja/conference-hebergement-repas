@@ -6,6 +6,7 @@ const activitySchema = new Schema({
     startDate: Date,
     endDate: Date,
     description: String,
+    isMainActivity: Boolean,
     restriction: [String]
 });
 

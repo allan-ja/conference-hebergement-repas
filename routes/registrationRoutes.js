@@ -1,11 +1,11 @@
-const Registration = require('../models/registration')
+const passport = require('passport');
+const mongoose = require('mongoose');
+const Registration = mongoose.model('registrations');
 
 module.exports = function (app, db) {
-    app.get('/api/registrations', (req, res) => {
-        Registration.find((err, registrations) => {
-            console.log(registrations);
-            res.send(registrations)
-        });
+    app.get('/api/registrations', async (req, res) => {
+        const registrations = await Registration.find();
+        res.send(registrations);
     });
     
     app.get('/api/registrations/:dojo', (req, res) => {
@@ -14,14 +14,12 @@ module.exports = function (app, db) {
         })
     })
 
-
-    app.post('/api/registrations', (req, res) => {
-        console.log(req.body)
-        var registration = new Registration(req.body);
-        registration.save((err) => {
-            if (err) throw err;
-            console.log("saved sucessfully")
-          });
-        res.send(req.body)
-    })
+    app.post('/api/registrations', async (req, res) => {
+        const registration = await Registration.findOne({ name: req.body.first_name});
+        if (registration) { res.send("This regitration name already exists"); }
+        else {
+            const newRegistration = await new Registration(req.body).save();
+            res.send(newRegistration)
+        }
+    });
 };
