@@ -14,16 +14,14 @@ module.exports = app => {
         }
     );
 
-    app.post('/signup', (req, res) => {
-        console.log(req.body);
-        const newUser = new User(req.body);
-        newUser.save((err) => {
-            if (err) throw err;
-            console.log("saved sucessfully")
-        });
-        res.send(req.body)
-
-    })
+    app.post('/signup', async (req, res) => {
+        const user = await User.findOne({ email: req.body.email});
+        if (user) { res.send("This user already exists"); }
+        else {
+            const newUser = await new User(req.body).save();
+            res.send(newUser)
+        }
+    });
 
 
     app.get('/api/logout', (req, res) => {
