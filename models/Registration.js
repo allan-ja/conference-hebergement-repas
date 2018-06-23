@@ -21,7 +21,6 @@ const registrationSchema = new Schema({
     main_activity: {
         class: String,
         subclass: String
-
     },
     extra_activities: [String],
     arrival_date: Date,
