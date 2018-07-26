@@ -1,27 +1,28 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { Container, Row, Col, Input, Button } from 'mdbreact';
 
-class LoginForm extends Component {
-    render() {
-        return (
-          
-          <form class="form-signin">
-      <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72" />
-      <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-      <label for="inputEmail" class="sr-only">Email address</label>
-      <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus />
-      <label for="inputPassword" class="sr-only">Password</label>
-      <input type="password" id="inputPassword" class="form-control" placeholder="Password" required />
-      <div class="checkbox mb-3">
-        <label>
-          <input type="checkbox" value="remember-me" /> Remember me
-        </label>
-      </div>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-      <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
-    </form>
-    
-        );
-    }
-}
+class LoginForm extends React.Component  {
+  render() {
+    return(
+      <Container>
+        <Row>
+          <Col md="6">
+            <form>
+                <p className="h4 text-center mb-4">Sign in</p>
+                <label htmlFor="defaultFormLoginEmailEx" className="grey-text">Your email</label>
+                <input type="email" id="defaultFormLoginEmailEx" className="form-control"/>
+                <br/>
+                <label htmlFor="defaultFormLoginPasswordEx" className="grey-text">Your password</label>
+                <input type="password" id="defaultFormLoginPasswordEx" className="form-control"/>
+                <div className="text-center mt-4">
+                <button className="btn btn-indigo" type="submit">Login</button>
+                </div>
+            </form>
+          </Col>
+        </Row>
+      </Container>
+    );
+  }
+};
 
 export default LoginForm;
