@@ -81,11 +81,11 @@ class RegistrationForm extends React.Component {
             <Button
               type="submit"
               variant="contained"
-              color="primary"
+              color="secondary"
               className={classes.button}
               disabled={pristine || submitting}
             >
-              Submit
+              ADD
             </Button>
           </Grid>
         </form>
