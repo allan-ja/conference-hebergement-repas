@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 import Header from './Header';
 // import LoginForm from './LoginForm';
-import RegistrationPanel from './RegistrationPanel'
+import RegistrationForm from './RegistrationForm'
 import RegistrationTable from './RegistrationTable'
 
 
@@ -14,7 +14,7 @@ class App extends Component {
             <div className="App">
             {/* <HeaderTest /> */}
             <Header />
-            <RegistrationPanel />
+            <RegistrationForm />
             <RegistrationTable />
             {/* <Route exact path="/" component={LoginForm} /> */}
           </div>

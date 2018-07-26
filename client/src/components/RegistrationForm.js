@@ -1,4 +1,5 @@
 import React from 'react'
+import { Field, reduxForm } from 'redux-form'
 import { withStyles } from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
@@ -26,7 +27,22 @@ const styles = theme => ({
   }
 })
 
-class RegistrationPanel extends React.Component {
+const renderTextField = ({
+  input,
+  label,
+  meta: { touched, error },
+  ...custom
+}) => (
+  <TextField
+    hintText={label}
+    floatingLabelText={label}
+    errorText={touched && error}
+    {...input}
+    {...custom}
+  />
+)
+
+class RegistrationForm extends React.Component {
   state = {
     firstname: '',
     lastname: '',
@@ -109,4 +125,6 @@ class RegistrationPanel extends React.Component {
   }
 }
 
-export default withStyles(styles)(RegistrationPanel)
+export default reduxForm({
+  form: 'RegistrationForm'
+})(withStyles(styles)(RegistrationForm))
