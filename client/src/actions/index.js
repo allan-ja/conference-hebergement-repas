@@ -12,8 +12,8 @@ export const fetchRegistrations = () =>  async dispatch => {
   const data = [
     {
       id: 3,
-      firstname: 'MongoDB',
-      lastname: 'Smith',
+      firstName: 'MongoDB',
+      lastName: 'Smith',
       email: 'alice@gmail.com'
     }
   ]  
@@ -22,5 +22,5 @@ export const fetchRegistrations = () =>  async dispatch => {
 
 export const addRegistration = (values) => dispatch => {
     console.log('addRegistration', values)
-    dispatch({ type: ADD_REGISTRATION, payload: values})
+    dispatch({ type: ADD_REGISTRATION, payload: {...values, id:Date.now()}})
 }

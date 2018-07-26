@@ -1,6 +1,6 @@
 import React from 'react'
+import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form'
-import { connect } from 'react-redux'
 import { withStyles } from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
@@ -38,9 +38,7 @@ const renderTextField = ({
   ...custom
 }) => (
   <TextField
-    hintText={label}
-    floatingLabelText={label}
-    errorText={touched && error}
+    label={label}
     {...input}
     {...custom}
   />
@@ -52,50 +50,32 @@ class RegistrationForm extends React.Component {
     lastname: '',
     email: ''
   }
-
-  handleChange = name => event => {
-    this.setState({
-      [name]: event.target.value
-    })
-  }
-
-  handleSubmit = e => {
-    e.preventDefault()
-
-    if (this.state.firstname || this.state.lastname || this.state.email) {
-      this.props.addRegistration(this.state)
-      this.setState({
-        firstname: '',
-        lastname: '',
-        email: ''
-      })
-    }
+  onRegistrationSubmit = (values) => {
+    console.log('onRegistrationSubmit', values)
+    this.props.addRegistration(values)
   }
 
   render() {
-    const { classes } = this.props
+    const { addRegistration, classes, handleSubmit, pristine, submitting } = this.props
     return (
       <Paper className={classes.root}>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={handleSubmit(addRegistration)}>
           <Grid className={classes.form}>
-            <TextField
+          <div>
+            <Field
+              name="firstName"
+              component={renderTextField}
               label="First Name"
-              value={this.state.firstname}
               classes={classes.textField}
-              onChange={this.handleChange('firstname')}
             />
-            <TextField
-              label="Last Name"
-              value={this.state.lastname}
-              classes={classes.textField}
-              onChange={this.handleChange('lastname')}
-            />
-            <TextField
-              label="Email"
-              value={this.state.email}
-              classes={classes.textField}
-              onChange={this.handleChange('email')}
-            />
+          </div>
+          <div>
+            <Field name="lastName" component={renderTextField} label="Last Name" />
+          </div>
+          <div>
+            <Field name="email" component={renderTextField} label="Email" />
+          </div>
+          
           </Grid>
           <Grid className={classes.form}>
             <Button
@@ -103,6 +83,7 @@ class RegistrationForm extends React.Component {
               variant="contained"
               color="primary"
               className={classes.button}
+              disabled={pristine || submitting}
             >
               Submit
             </Button>
@@ -113,7 +94,6 @@ class RegistrationForm extends React.Component {
   }
 }
 
-
 function mapStateToProps(state) {
   return { state }
  }
@@ -121,8 +101,6 @@ function mapStateToProps(state) {
 export default connect(
   mapStateToProps,
   actions
-)(withStyles(styles)(RegistrationForm))
-
-// export default reduxForm({
-//   form: 'RegistrationForm'
-// })(withStyles(styles)(RegistrationForm))
+)(reduxForm({
+    form: 'RegistrationForm'
+  })(withStyles(styles)(RegistrationForm)))

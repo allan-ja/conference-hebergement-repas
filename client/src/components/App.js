@@ -3,8 +3,7 @@ import React, { Component } from 'react';
 
 import Header from './Header';
 // import LoginForm from './LoginForm';
-import RegistrationForm from './RegistrationForm'
-import RegistrationTable from './RegistrationTable'
+import RegistrationPage from './RegistrationPage'
 
 
 class App extends Component {
@@ -12,10 +11,8 @@ class App extends Component {
     return (
 
             <div className="App">
-            {/* <HeaderTest /> */}
-            <Header />
-            <RegistrationForm />
-            <RegistrationTable />
+              <Header />
+              <RegistrationPage />
             {/* <Route exact path="/" component={LoginForm} /> */}
           </div>
     );
