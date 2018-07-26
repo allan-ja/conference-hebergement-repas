@@ -1,10 +1,14 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
+import { connect } from 'react-redux'
 import { withStyles } from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
+
+import * as actions from '../actions';
+
 
 const flex = {
   display: 'flex',
@@ -46,15 +50,7 @@ class RegistrationForm extends React.Component {
   state = {
     firstname: '',
     lastname: '',
-    email: '',
-    data: [
-      {
-        id: 1,
-        firstname: 'Alice',
-        lastname: 'Smith',
-        email: 'alice@gmail.com'
-      }
-    ]
+    email: ''
   }
 
   handleChange = name => event => {
@@ -67,20 +63,12 @@ class RegistrationForm extends React.Component {
     e.preventDefault()
 
     if (this.state.firstname || this.state.lastname || this.state.email) {
-      this.setState(({ firstname, lastname, email, data }) => ({
-        data: [
-          ...data,
-          {
-            firstname,
-            lastname,
-            email,
-            id: Date.now()
-          }
-        ],
+      this.props.addRegistration(this.state)
+      this.setState({
         firstname: '',
         lastname: '',
         email: ''
-      }))
+      })
     }
   }
 
@@ -125,6 +113,16 @@ class RegistrationForm extends React.Component {
   }
 }
 
-export default reduxForm({
-  form: 'RegistrationForm'
-})(withStyles(styles)(RegistrationForm))
+
+function mapStateToProps(state) {
+  return { state }
+ }
+
+export default connect(
+  mapStateToProps,
+  actions
+)(withStyles(styles)(RegistrationForm))
+
+// export default reduxForm({
+//   form: 'RegistrationForm'
+// })(withStyles(styles)(RegistrationForm))

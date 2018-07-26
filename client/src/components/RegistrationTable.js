@@ -1,6 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { withStyles } from '@material-ui/core/styles'
 import Paper from '@material-ui/core/Paper'
 import Table from '@material-ui/core/Table'
 import TableBody from '@material-ui/core/TableBody'
@@ -12,9 +11,9 @@ import { fetchRegistrations } from '../actions'
 
 class RegistrationTable extends React.Component {
   componentDidMount() {
-    this.props.fetchRegistrations()
+    this.props.fetchRegistrations();
   }
-  
+
   render() {
     return (
       <Paper>
@@ -28,7 +27,7 @@ class RegistrationTable extends React.Component {
           </TableHead>
           <TableBody>
             {(this.props.registrations || []).map(n => (
-              <TableRow>
+              <TableRow key={n.id}>
                 <TableCell>{n.firstname}</TableCell>
                 <TableCell>{n.lastname}</TableCell>
                 <TableCell>{n.email}</TableCell>

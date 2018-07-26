@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FETCH_USER, FETCH_REGISTRATIONS } from './types';
+import { FETCH_USER, FETCH_REGISTRATIONS, ADD_REGISTRATION } from './types';
 
 export const fetchUser = () => async dispatch => {
   const res = await axios.get('/api/current_user');
@@ -8,14 +8,19 @@ export const fetchUser = () => async dispatch => {
 };
 
 export const fetchRegistrations = () =>  async dispatch => {
+  // TODO: Async request to backend
   const data = [
     {
-      id: 1,
-      firstname: 'Bobo',
+      id: 3,
+      firstname: 'MongoDB',
       lastname: 'Smith',
       email: 'alice@gmail.com'
     }
-  ]
-  
+  ]  
   dispatch({ type: FETCH_REGISTRATIONS, payload: data})
+}
+
+export const addRegistration = (values) => dispatch => {
+    console.log('addRegistration', values)
+    dispatch({ type: ADD_REGISTRATION, payload: values})
 }
