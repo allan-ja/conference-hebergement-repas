@@ -27,7 +27,7 @@ class RegistrationTable extends React.Component {
             </TableRow>
           </TableHead>
           <TableBody>
-            {(this.props.data || []).map(n => (
+            {(this.props.registrations || []).map(n => (
               <TableRow>
                 <TableCell>{n.firstname}</TableCell>
                 <TableCell>{n.lastname}</TableCell>
@@ -41,23 +41,9 @@ class RegistrationTable extends React.Component {
   }
 }
 
-function mapStateToProps({ data }) {
-  console.log(data)
-  return { 
-    
-      data: [
-        {
-          id: 1,
-          firstname: 'Bobo',
-          lastname: 'Smith',
-          email: 'alice@gmail.com'
-        }
-      ]
-    
-  
-}
- 
-}
+function mapStateToProps({ registrations }) {
+  return { registrations }
+ }
 
 export default connect(
   mapStateToProps,
