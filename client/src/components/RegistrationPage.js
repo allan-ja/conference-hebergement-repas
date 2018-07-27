@@ -1,9 +1,12 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import SaveIcon from '@material-ui/icons/Save';
 import Button from '@material-ui/core/Button';
-import { withStyles, createMuiTheme } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import RegistrationForm from './RegistrationForm';
 import RegistrationTable from './RegistrationTable'
+
+import { persistRegistrations } from '../actions'
 
 const styles = theme => ({
     button: {
@@ -15,20 +18,32 @@ const styles = theme => ({
         position: 'fixed'
     }
 })
-  
+
 function RegistrationPage(props) {
-    const { classes } = props;
+    const { classes, persistRegistrations, registrations } = props;
+    const handleSave = () => {
+        persistRegistrations(registrations)
+    }
     return (
         <div>
             <RegistrationForm />
             <RegistrationTable />
-            <div>
-            <Button variant="fab" color="primary" aria-label="Save" className={ classes.button }>
+            <Button 
+                variant="fab" 
+                color="primary" 
+                aria-label="Save" 
+                className={ classes.button }
+                onClick={ handleSave }>
                 <SaveIcon />
             </Button>
-            </div>
         </div>
     )
 }
 
-export default withStyles(styles)(RegistrationPage)
+function mapStateToProps({ registrations }) {
+    return { registrations }
+   }
+  
+  export default connect(
+    mapStateToProps, { persistRegistrations }
+  )(withStyles(styles)(RegistrationPage))

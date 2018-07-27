@@ -1,3 +1,6 @@
 export const FETCH_USER = 'fetch_user'
 export const FETCH_REGISTRATIONS = 'fetch_registrations'
 export const ADD_REGISTRATION = 'add_registration'
+export const REGISTRATIONS_SAVE_SUCCESS = 'save_success'
+export const REGISTRATIONS_SAVE_FAILURE = 'save_failure'
+export const REGISTRATIONS_SAVE_RESET = 'save_reset'
