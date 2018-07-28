@@ -3,9 +3,6 @@ const mongoose = require('mongoose');
 const User = mongoose.model('users');
 
 module.exports = app => {
-    app.get('/', (req, res) => {
-        res.send('Root page');
-    });
     
     app.post('/api/login',
         passport.authenticate('local', { failureRedirect: '/login' }),

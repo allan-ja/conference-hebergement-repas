@@ -7,10 +7,14 @@ import ButtonSave from './ButtonSave'
 import { persistRegistrations } from '../actions'
 
 function RegistrationPage(props) {
-    const { classes, persistRegistrations, registrations } = props;
+    const { persistRegistrations, registrations } = props;
     const handleSave = () => {
-        persistRegistrations(registrations)
+        const regToSave = registrations.filter(function (reg) {
+            return reg.toSave
+          })
+        persistRegistrations(regToSave)
     }
+
     return (
         <div>
             <RegistrationForm />

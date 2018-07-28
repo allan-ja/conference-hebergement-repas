@@ -45,21 +45,17 @@ const renderTextField = ({
 )
 
 class RegistrationForm extends React.Component {
-  state = {
-    firstname: '',
-    lastname: '',
-    email: ''
-  }
+
   onRegistrationSubmit = (values) => {
-    console.log('onRegistrationSubmit', values)
-    this.props.addRegistration(values)
+    const newEntry = { ...values, toSave: true}
+    this.props.addRegistration(newEntry)
   }
 
   render() {
-    const { addRegistration, classes, handleSubmit, pristine, submitting } = this.props
+    const { classes, handleSubmit, pristine, submitting } = this.props
     return (
       <Paper className={classes.root}>
-        <form onSubmit={handleSubmit(addRegistration)}>
+        <form onSubmit={handleSubmit(this.onRegistrationSubmit)}>
           <Grid className={classes.form}>
           <div>
             <Field
