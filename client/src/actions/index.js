@@ -30,7 +30,13 @@ export const addRegistration = (values) => dispatch => {
 export const persistRegistrations = (values) => async dispatch => {
 
   const res = await axios.post('/api/new_registrations', values)
-  const payload = {id: Date.now(), status: 1, message:'Save Successful'}
+  
+  if (res.status === 200) {
+    const payload = {id: Date.now(), status: 1, message:'Save Successful'}
+    dispatch({ type: REGISTRATIONS_SAVE_SUCCESS, payload: payload})
+  } else {
+    const payload = {id: Date.now(), status: 1, message:'Save Failed'}
+    dispatch({ type: REGISTRATIONS_SAVE_SUCCESS, payload: payload})
+  }
+}  
  
-  dispatch({ type: REGISTRATIONS_SAVE_SUCCESS, payload: payload})
-}
