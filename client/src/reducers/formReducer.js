@@ -1,4 +1,4 @@
-import { reducer  } from 'redux-form'
+import { reducer } from 'redux-form'
 import { ADD_REGISTRATION } from '../actions/types'
 
 export default reducer.plugin({
@@ -10,4 +10,5 @@ export default reducer.plugin({
           return state;
       }
     }
+    
   })

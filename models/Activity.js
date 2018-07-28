@@ -2,12 +2,13 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const activitySchema = new Schema({
-    name: { type: String, required: true, index: { unique: true }},
+    name: String,
     startDate: Date,
     endDate: Date,
     description: String,
     isMainActivity: Boolean,
-    restriction: [String]
+    restriction: [String],
+    active: Boolean
 });
 
 mongoose.model('activities', activitySchema);
