@@ -26,7 +26,7 @@ class RegistrationTable extends React.Component {
             </TableRow>
           </TableHead>
           <TableBody>
-            {(this.props.registrations.data || []).map(n => (
+            {(this.props.registrations || []).map(n => (
               <TableRow key={n.id}>
                 <TableCell>{n.firstName}</TableCell>
                 <TableCell>{n.lastName}</TableCell>
