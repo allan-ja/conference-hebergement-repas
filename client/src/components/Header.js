@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
 import AppBar from '@material-ui/core/AppBar'
@@ -19,8 +20,12 @@ const styles = {
   }
 }
 
-function ButtonAppBar(props) {
+function Header(props) {
   const { classes } = props
+
+  const activityButton = () => {
+    
+  }
   return (
     <div className={classes.root}>
       <AppBar position="static">
@@ -28,15 +33,21 @@ function ButtonAppBar(props) {
           <Typography variant="title" color="inherit" className={classes.flex}>
             GHR
           </Typography>
-          <Button color="inherit">Login</Button>
+          
+          <Button 
+            color="inherit" 
+            component={Link} 
+            to="/activities"
+            >Activity Manager
+          </Button>
         </Toolbar>
       </AppBar>
     </div>
   )
 }
 
-ButtonAppBar.propTypes = {
+Header.propTypes = {
   classes: PropTypes.object.isRequired
 }
 
-export default withStyles(styles)(ButtonAppBar)
+export default withStyles(styles)(Header)
