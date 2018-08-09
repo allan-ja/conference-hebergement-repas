@@ -16,4 +16,10 @@ module.exports = app => {
             res.send(newActivity)
         }
     });
+
+    app.post('/api/new_activities', async (req, res) => {
+        
+        const activities = await Activity.insertMany(req.body);
+        res.send(activities)
+    });
 };

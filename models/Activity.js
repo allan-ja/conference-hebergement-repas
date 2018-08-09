@@ -7,7 +7,8 @@ const activitySchema = new Schema({
     endDate: Date,
     description: String,
     isMainActivity: Boolean,
-    restriction: [String]
+    restriction: [String],
+    active: Boolean
 });
 
 mongoose.model('activities', activitySchema);
