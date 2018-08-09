@@ -13,8 +13,8 @@ class App extends Component {
 
             <div className="App">
               <Header />
-              {/* <RegistrationPage /> */}
-              <ActivityContainer />
+              <RegistrationPage />
+              {/* <ActivityContainer /> */}
               <Notifier />
             {/* <Route exact path="/" component={LoginForm} /> */}
           </div>

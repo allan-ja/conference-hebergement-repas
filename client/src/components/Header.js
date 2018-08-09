@@ -24,7 +24,13 @@ function Header(props) {
   const { classes } = props
 
   const activityButton = () => {
-    
+    // TODO: Just past this here while fixing
+    <Button 
+    color="inherit" 
+    component={Link} 
+    to="/activities"
+    >Activity Manager
+  </Button>
   }
   return (
     <div className={classes.root}>
@@ -36,8 +42,6 @@ function Header(props) {
           
           <Button 
             color="inherit" 
-            component={Link} 
-            to="/activities"
             >Activity Manager
           </Button>
         </Toolbar>
