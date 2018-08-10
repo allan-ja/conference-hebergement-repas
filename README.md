@@ -19,7 +19,7 @@ Before running the application, you need to create a `dev.js` file inside the `c
 There is a template:
 
 ```js
-# config/dev.js
+// config/dev.js
 
 module.exports = {
     mongoURI: 'mongodb://ADDRESS:PORT/DB'
