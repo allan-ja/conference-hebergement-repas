@@ -2,9 +2,22 @@
 
 ## Instructions for Development Setup
 
-First, let's install NodeJs and NPM.
+First, let's install NodeJs and NPM using the Node Version Manager (NVM). To install `nvm`, see [here](https://github.com/creationix/nvm#install-script).
 
-Then clone the reposisory 
+For development, we use the LTS version of node.
+
+    $ nvm install ---lts
+
+Now, you should have Node v8.X and npm v5.X installed. To verify, type:
+
+    $ node --version
+    $ nvm --version
+
+To run the project in development mode, `yarn` is also needed:
+
+    $ npm install yarn -g
+
+Then clone the reposisory in the folder of your choice
     
     $ git clone https://github.com/sc15aj/conference-hebergement-repas.git
 
