@@ -6,7 +6,7 @@ First, let's install NodeJs and NPM using the Node Version Manager (NVM). To ins
 
 For development, we use the LTS version of node.
 
-    $ nvm install ---lts
+    $ nvm install --lts
 
 Now, you should have Node v8.X and npm v5.X installed. To verify, type:
 
