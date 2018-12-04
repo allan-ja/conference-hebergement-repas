@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
-import Header from './Header';
-import RegistrationPage from './RegistrationPage'
-import ActivityContainer from './ActivityContainer'
+import Header from './Header/Header';
+import RegistrationPage from './Registration/RegistrationPage'
+import ActivityContainer from './Activity/ActivityContainer'
 import Notifier from './Notifier'
 
 

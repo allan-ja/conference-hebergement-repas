@@ -7,7 +7,7 @@ import Button from '@material-ui/core/Button'
 import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
 
-import { addActivity } from '../actions'
+import { addActivity } from '../../actions'
 
 
 const flex = {
