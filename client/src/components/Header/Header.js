@@ -1,11 +1,13 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Route } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
+
+import ButtonHeader from './ButtonHeader'
 
 const styles = {
   root: {
@@ -20,18 +22,24 @@ const styles = {
   }
 }
 
+const activityButton = props => 
+  <ButtonHeader 
+    link='/activities' 
+    text='Activity Manager' 
+    {...props} 
+  />
+
+  const registrationButton = props => 
+  <ButtonHeader 
+    link='/registration' 
+    text='Registration Manager' 
+    {...props} 
+  />
+
+
 function Header(props) {
   const { classes } = props
 
-  const activityButton = () => {
-    // TODO: Just past this here while fixing
-    <Button 
-    color="inherit" 
-    component={Link} 
-    to="/activities"
-    >Activity Manager
-  </Button>
-  }
   return (
     <div className={classes.root}>
       <AppBar position="static">
@@ -40,10 +48,8 @@ function Header(props) {
             GHR
           </Typography>
           
-          <Button 
-            color="inherit" 
-            >Activity Manager
-          </Button>
+          <Route exact path="/registration" component={activityButton} />
+          <Route path="/activities" component={registrationButton} />
         </Toolbar>
       </AppBar>
     </div>

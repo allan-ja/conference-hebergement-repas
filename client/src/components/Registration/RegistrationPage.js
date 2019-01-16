@@ -2,9 +2,9 @@ import React from 'react'
 import { connect } from 'react-redux'
 import RegistrationForm from './RegistrationForm';
 import RegistrationTable from './RegistrationTable'
-import ButtonSave from './ButtonSave'
+import ButtonSave from '../ButtonSave'
 
-import { persistRegistrations } from '../actions'
+import { persistRegistrations } from '../../actions'
 
 function RegistrationPage(props) {
     const { persistRegistrations, registrations } = props;
