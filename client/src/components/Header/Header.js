@@ -31,7 +31,7 @@ const activityButton = props =>
 
   const registrationButton = props => 
   <ButtonHeader 
-    link='/' 
+    link='/registration' 
     text='Registration Manager' 
     {...props} 
   />
@@ -48,7 +48,7 @@ function Header(props) {
             GHR
           </Typography>
           
-          <Route exact path="/" component={activityButton} />
+          <Route exact path="/registration" component={activityButton} />
           <Route path="/activities" component={registrationButton} />
         </Toolbar>
       </AppBar>

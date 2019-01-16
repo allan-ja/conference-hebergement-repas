@@ -12,8 +12,8 @@ class App extends Component {
       <Router>
         <div className="App">
             <Header />
-            {/* <RegistrationPage /> */}
-            <ActivityContainer />
+            <Route path="/activities" component={ActivityContainer} />
+            <Route path="/registration" component={RegistrationPage} />
             <Notifier />
           {/* <Route exact path="/" component={LoginForm} /> */}
         </div>

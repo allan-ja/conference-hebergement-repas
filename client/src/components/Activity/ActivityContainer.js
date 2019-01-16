@@ -11,7 +11,7 @@ function ActivityContainer(props) {
     const handleSave = () => {
         const actToSave = activities.filter(function (act) {
             return act.toSave
-          })
+        })
         persistActivities(actToSave)
     }
     const { persistActivities, activities } = props
@@ -28,7 +28,7 @@ function ActivityContainer(props) {
 
 function mapStateToProps({ activities }) {
     return { activities }
-   }
-  
+}
+
 
 export default connect(mapStateToProps, { persistActivities })(ActivityContainer)
